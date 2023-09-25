@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd # pip install pandas로 패키지 설치
 
 # numpy : 수치 데이터를 다루기 위한 라이브러리
 # pandas : 데이터 분석에 자주 사용하는 테이블형태 다루는 라이브러리
