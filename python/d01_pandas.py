@@ -3,7 +3,7 @@ import pandas as pd
 # numpy : 수치 데이터를 다루기 위한 라이브러리
 # pandas : 데이터 분석에 자주 사용하는 테이블형태 다루는 라이브러리
     # 1차원 자료구조 : Series
-    # 2차원 자료구조 : DataFrame
+    # 2차원 자료구조 : DataFrame(많이 사용하는 데이터 구조)
     # 3차원 자료구조 : Panel
 
 # List [], Tuple () - 한번 자료 지정하면 수정불가,
