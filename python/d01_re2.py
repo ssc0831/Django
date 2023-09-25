@@ -35,7 +35,7 @@ print(type(z))
 print(z)
 
 for i in z:
-    print(i[:-1]) # : 부분 제외 호출
+    print(i[:-1]) # :(콜론) 부분 제외 호출
 
 
 character = []
