@@ -50,3 +50,37 @@ for i in z:
     # print(char, end= ' ')
     character2.append(char)
 print(character2)
+#################
+print()
+print('='*20)
+print(script101)
+#################
+ch = 'Scene:'
+ch = re.sub(':','',ch)
+print(ch)
+#################
+a = '제 이메일 주소는 greate@naver.com'
+a += ' 오늘은 today@naver.com 내일은 apple@gmail.com life@abc.co.kr라는 메일을 사용합니다.'
+print(a)
+# E-mail의 주소값만 출력(greate@naver.com, today@naver.com, apple@naver.com, life@abc.co.kr)
+a1 = re.findall(r'[a-z]+@[a-z.]+',a)
+print(a1)
+################
+words = ['apple', 'cat', 'brave', 'drama', 'asise', 'blow', 'coat', 'above']
+mm = []
+for i in words :
+    mm += re.findall(r'a[a-z]+', i)
+print(mm)
+print()
+
+for i in words :
+    m = re.search(r'a[a-z]+', i)
+    if m:
+        print(m.group())
+print()
+for i in words :
+    # m = re.match(r'a[a-z]+', i) # match는 시작위치에서 패턴을 찾음
+    m = re.match(r'a\D+', i) # \d(숫자) \D(숫자가 아닌)
+    if m:
+        print(">>>>", m.group())
+
