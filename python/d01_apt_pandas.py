@@ -24,3 +24,12 @@ print('-'*20)
 # 지역에 강릉이 들어간 자료만 출력
 local_area = df[df.시군구.str.find('강릉') > -1]
 print(local_area)
+# 지역이 강릉인 시군구, 가격, 면적 10행 출력하기
+print(local_area.loc[:10, ['시군구', '가격', '면적']])
+print(local_area.loc[:10, ('시군구', '가격', '면적')])
+
+print('-'*20)
+# 가격만 5행 출력하기
+print(df['가격'].head())
+# 면적이 130㎡ 넘는 아파트 가격
+print(df.가격[df.면적 > 130])
