@@ -1,1 +1,1 @@
-# Django
+# Python Django

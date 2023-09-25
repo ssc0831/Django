@@ -33,3 +33,10 @@ print(new_list)
 with open('apt11.csv', 'w', newline='') as f:
     a = csv.writer(f,delimiter=',')
     a.writerows(new_list)
+
+#########################
+# 첫 번째 행에 컴퓨터, 노트북, 태블릿
+# 두 번째 행에 100, 80, 60
+# 리스트 형태로 표현 ==> 
+# test.csv 파일로 출력
+
