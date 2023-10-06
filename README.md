@@ -9,3 +9,5 @@
 - 웹 크롤링 개념 복습, 영화 평점 가져오기, 날씨 알아내기 및 matplot 활용하여 차트 만들기(결과값은 따로 폴더 저장함)
 - 동적 크롤링
 - https://chromedriver.chromium.org/downloads 활용하여 해줘야 함.
+- https://googlechromelabs.github.io/chrome-for-testing/ Stable 버전 다운로드 들어가서 Chrome Driver를 설치
+
