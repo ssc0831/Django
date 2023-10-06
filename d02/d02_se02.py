@@ -44,7 +44,7 @@ print(datas)
 with open('melon.csv', 'w', encoding='utf-8-sig') as file:
     file.write('순위, 곡명, 가수, 앨범, 좋아요\n')
     for item in datas:
-        row = ','.join(item)
+        row = ', '.join(item)
         file.write(row+"\n")
 
 
