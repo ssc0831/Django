@@ -17,7 +17,8 @@
 
 #### 웹 크롤링 DB 연동
 - 웹 크롤링 SQL연동(MySQL 활용)
-- pip install pymysql
+- pip install pymysql (MySQL을 Python에서 사용에 필요한 라이브러리)
 - DB 연결 및 DB 삽입, 선택 작업
 - PieChart 그리기(matplotlib 활용)
+- pip install lxml (xml 파싱 라이브러리)
 
