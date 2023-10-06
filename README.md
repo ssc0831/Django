@@ -5,5 +5,5 @@
 - pandas, re, bs4(BeautifulSoup) & request 활용
 ### d02 Python Library
 #### 웹 크롤링
-- bs4(BeautifulSoup) & request 활용, pandas로 파일 읽기 및 내보내기
-- 웹 크롤링 개념 복습, 영화 평점 가져오기, 날씨 알아내기
+- bs4(BeautifulSoup) & request 활용, pandas로 파일 읽기 및 내보내기, matplot 라이브러리 활용하기
+- 웹 크롤링 개념 복습, 영화 평점 가져오기, 날씨 알아내기 및 matplot 활용하여 차트 만들기
