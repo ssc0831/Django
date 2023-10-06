@@ -3,6 +3,7 @@
 ### d01 Python Library
 #### pandas, re(정규 표현식(Regular Expression))활용, 웹 크롤링
 - pandas, re, bs4(BeautifulSoup) & request 활용
+
 ### d02 Python Library
 #### 웹 크롤링(정적 크롤링, 동적 크롤링)
 - bs4(BeautifulSoup) & request 활용, pandas로 파일 읽기 및 내보내기, matplot 라이브러리 활용하기
