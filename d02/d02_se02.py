@@ -37,7 +37,7 @@ for tr in trs:
     like = re.sub('\n총건수\n', '', like)
     like = re.sub(',','', like)
     # print(like)
-    datas.append([rank,name,singer,album,like])
+    datas.append([rank, name, singer, album, like])
 print(datas)
 
 # melon.csv 순위, 곡명, 가수, 앨범, 좋아요 \n

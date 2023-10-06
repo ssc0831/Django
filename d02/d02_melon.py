@@ -33,5 +33,5 @@ for tr in trs:
     # like = re.sub('\n총건수\n', '', like) # 정적인 크롤링으로는 좋아요가 0이 나오므로 구하기가 불가
     # like = re.sub(',','', like)
     # print(like)
-    datas.append([rank,name,singer,album])
+    datas.append([rank, name, singer, album])
 print(datas)
