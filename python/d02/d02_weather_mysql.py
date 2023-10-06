@@ -16,22 +16,32 @@ html = req.text
 
 # pip install lxml - lxml Parsing 패키지 설치
 soup = BeautifulSoup(html, 'lxml')
+
+select_weather = "select tmef from forecast order by tmef desc limit 1"
+cur = conn.cursor()
+cur.execute(select_weather)
+
+last_data = cur.fetchone()
+print(last_data)
+print(type(last_data))
+
 # print(soup.find_all('location'))
 weather = {}
-for i in soup.find_all('location'):
+for i in soup.find_all('location') :
     weather[i.find('city').text] = []
     for j in i.find_all('data'):
         temp = []
-        temp.append(j.find('tmef').text)
-        temp.append(j.find('wf').text)
-        temp.append(j.find('tmn').text)
-        temp.append(j.find('tmx').text)
-        weather[i.find('city').string].append(temp)
-        # print(temp)
-# print(weather)
+        if (last_data   is None) or  (str(last_data[0]) < j.find('tmef').text ):
+            temp.append(j.find('tmef').text)
+            temp.append(j.find('wf').text)
+            temp.append(j.find('tmn').text)
+            temp.append(j.find('tmx').text)
+            weather[i.find('city').string].append(temp)
+            # print(temp)
+# print(weather)   
 
 for i in weather:
     for j in weather[i]:
         cur = conn.cursor()
-        cur.execute(insert_weather, (i, j[0], j[1], j[2], j[3]))
+        cur.execute(insert_weather, (i, j[0],j[1],j[2],j[3]))
         conn.commit()
