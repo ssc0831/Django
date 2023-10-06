@@ -22,4 +22,3 @@
 - DB 연결 및 DB 삽입, 선택 작업
 - PieChart 그리기(matplotlib 활용)
 - pip install lxml (xml 파싱 라이브러리)
-
