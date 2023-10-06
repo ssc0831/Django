@@ -11,7 +11,9 @@
 - pip install selenium
 - https://chromedriver.chromium.org/downloads 활용하여 해줘야 함.
 - https://googlechromelabs.github.io/chrome-for-testing/ Stable 버전 다운로드 들어가서 Chrome Driver를 설치
+
 #### 웹 크롤링 DB 연동
 - 웹 크롤링 SQL연동(MySQL)
-- pip install pymysql
+- pip install pymysql로 패키지 설치
+- DB 연결 및 DB CRUD 작업
 

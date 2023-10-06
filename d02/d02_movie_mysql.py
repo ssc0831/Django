@@ -3,6 +3,7 @@ import requests
 import pymysql
 
 # DB 연결
+# pip install pymysql - MySQL Python 연동되도록 패키지 설치 먼저 해주세요.
 dbURL = "127.0.0.1"
 dbPort = 3306
 dbUser = "root"
