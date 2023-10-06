@@ -22,12 +22,16 @@ datas = []
 # ['1', 'Love Lee', 'AKMU(악뮤)', 'Love Lee', '87738'] , ...
 for tr in trs:
     rank = tr.select_one('span.rank').get_text()
+    
     #lst50 > td:nth-child(6) > div > div > div.ellipsis.rank01 > span > a
     name = tr.select_one('div.ellipsis.rank01 > span > a').get_text()
+    
     #lst50 > td:nth-child(6) > div > div > div.ellipsis.rank02 > a
     singer = tr.select_one('div.ellipsis.rank02 > a').get_text()
+    
     #lst50 > td:nth-child(7) > div > div > div > a
     album = tr.select_one('div.rank03 > a').get_text()
+    
     #lst50 > td:nth-child(8) > div > button > span.cnt
     like = tr.select_one('span.cnt').get_text()
     like = re.sub('\n총건수\n', '', like)
