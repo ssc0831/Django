@@ -3,6 +3,8 @@
 ### d01 Python Library
 #### pandas, re(정규 표현식(Regular Expression))활용, 웹 크롤링
 - pandas, re, bs4(BeautifulSoup) & request 활용
+- import pandas, import re, from bs4 import BeautifulSoup, import requests 사용
+- 패키지 설치 안되있을때는 pip install 사용하여 패키지 설치해줘야 한다.
 
 ### d02 Python Library
 #### 웹 크롤링(정적 크롤링, 동적 크롤링)
