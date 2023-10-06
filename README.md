@@ -6,4 +6,4 @@
 ### d02 Python Library
 #### 웹 크롤링
 - bs4(BeautifulSoup) & request 활용
-- 웹 크롤링 개념 복습, 영화 평점 가져오기
+- 웹 크롤링 개념 복습, 영화 평점 가져오기, 날씨 알아내기
