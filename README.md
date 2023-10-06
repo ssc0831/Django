@@ -18,6 +18,6 @@
 #### 웹 크롤링 DB 연동
 - 웹 크롤링 SQL연동(MySQL 활용)
 - pip install pymysql
-- DB 연결 및 DB CRUD 작업
+- DB 연결 및 DB 삽입, 선택 작업
 - PieChart 그리기(matplotlib 활용)
 

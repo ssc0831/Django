@@ -21,7 +21,6 @@ soup = BeautifulSoup(html, 'html.parser')
 ols = soup.find('ol', class_='list_movieranking')
 rankcount = ols.find_all('div', class_ ='thumb_cont')
 
-# DB CRUD
 # 1. insert
 cur = conn.cursor() # conn.cursor()는 SQL 쿼리를 실행하고 결과를 조회
 for i in rankcount:
