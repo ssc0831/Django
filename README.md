@@ -11,13 +11,13 @@
 - bs4(BeautifulSoup) & request 활용, pandas로 파일 읽기 및 내보내기, matplotlib 활용하기
 - 웹 크롤링 개념 복습, 영화 평점 가져오기, 날씨 알아내기 및 matplot 활용하여 차트 만들기(결과값은 따로 폴더 저장함)
 - 동적 크롤링(Selenium 패키지 활용)
-- pip install selenium
+- pip install selenium -> 패키지 설치
 - https://chromedriver.chromium.org/downloads 활용하여 해줘야 함.
-- https://googlechromelabs.github.io/chrome-for-testing/ Stable 버전 다운로드 들어가서 Chrome Driver를 설치
+- https://googlechromelabs.github.io/chrome-for-testing/ -> Stable 버전 다운로드 들어가서 Chrome Driver를 설치
 
 #### 웹 크롤링 DB 연동
 - 웹 크롤링 SQL연동(MySQL 활용)
-- pip install pymysql (MySQL을 Python에서 사용에 필요한 라이브러리)
+- pip install pymysql (MySQL을 Python에서 사용에 필요한 라이브러리) -> 패키지 설치
 - bigdb Schema 생성, daum_movie, forecast Table 생성
 - DB 연결 및 DB 삽입, 선택 작업
 - PieChart 그리기(matplotlib 활용)
