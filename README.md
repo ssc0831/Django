@@ -21,4 +21,4 @@
 - bigdb Schema 생성, daum_movie, forecast Table 생성
 - DB 연결 및 DB 삽입, 선택 작업
 - PieChart 그리기(matplotlib 활용)
-- pip install lxml (xml 파싱 라이브러리)
+- pip install lxml (xml 파싱 라이브러리) -> 패키지 설치
