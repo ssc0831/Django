@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>LIST</h3>
+    <h3>LIST // <a href="/write_form/">Insert</a></h3>
     <table border="1">
         <thead>
             <tr>
@@ -24,7 +24,9 @@
             {% for board in boardList %} <!-- Django에서의 반복문 시작 -->
             <tr>
                 <td>{{board.idx}}</td>
-                <td>{{board.title}}</td>
+                <td><a href="/detail_idx?idx={{board.idx}}">{{board.title}}</a>
+                 // <a href="/detail/{{board.idx}}">{{board.title}}</a>
+                </td>
                 <td>{{board.writer}}</td>
                 <td>{{board.post_date}}</td>
                 <td>{{board.hit}}</td>

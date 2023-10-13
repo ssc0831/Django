@@ -40,3 +40,20 @@ def list(request):
      boardList = Board.objects.all()
      context = {'boardList' : boardList}
      return render(request, 'board/list.html', context)
+
+# 상세보기 : detail_idx 출력
+# 출력할때 /detail_idx?idx=1와 같은 형태로 출력
+def detail_idx(request):
+     id = request.GET['idx']
+     # print('id:' , id)
+     dto = Board.objects.get(idx=id) # 하나의 Object를 return 시킴
+     dto.hit_up()
+     dto.save()
+     return render(request, 'board/detail.html' ,{'dto' : dto}) 
+# 직접적으로 Dictionary 줘서 변수 지정
+
+# 상세보기 : detail/{num}과 같은 REST API로 출력
+# /detail/1와 같은 형태로 출력 => detail/<int:board_idx>
+def detail(request, board_idx):
+     print('board_idx :', board_idx)
+     return render(request, 'board/detail1.html')
