@@ -1,5 +1,6 @@
 # Python Django
 ## 데이터 시각화(Data Visualization)를 위한 Python & Django
+## Python
 ### d01 Python Library
 #### pandas, re(정규 표현식(Regular Expression))활용, 웹 크롤링
 - pandas, re, bs4(BeautifulSoup) & request 활용
@@ -27,3 +28,15 @@
 #### 웹 크롤링 DB 연동 d02것 이어서
 - 날씨 정보 추출, 날짜별 최고기온, 최저기온 출력
 - WordCloud 활용
+
+## Django(장고)
+### Django 활용
+- pip install django - Django 설치(오류가 나면 관리자모드로 설치해주세요.)
+- pip install mysqlclient – Django에서 DB(MySQL)연결을 하기 위한 설치
+### 프로젝트 생성
+- django-admin startproject [project명]
+- 예시> django-admin startproject myDjango01
+- myDjango01로 이동
+### 프로젝트 앱 실행
+- python manage.py startapp myapp01
+
