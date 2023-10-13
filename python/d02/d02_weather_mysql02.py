@@ -24,8 +24,8 @@ low = [] # 최저기온
 high = [] # 최고기온
 xdata = [] # 날짜
 for r in result:
-    low.append(int(r[4]))
-    high.append(int(r[5]))
+    low.append(int(r[4])) # 자료형 변환(캐스팅)
+    high.append(int(r[5])) # 자료형 변환(캐스팅)
     xdata.append(r[2])
 
 plt.figure(figsize=(10,6))
