@@ -21,7 +21,7 @@ select_weather = "select tmef from forecast order by tmef desc limit 1"
 cur = conn.cursor()
 cur.execute(select_weather)
 
-last_data = cur.fetchone()
+last_data = cur.fetchone() # DB에 있는 최신 날짜
 print(last_data)
 print(type(last_data))
 
