@@ -55,5 +55,13 @@ def detail_idx(request):
 # 상세보기 : detail/{num}과 같은 REST API로 출력
 # /detail/1와 같은 형태로 출력 => detail/<int:board_idx>
 def detail(request, board_idx):
-     print('board_idx :', board_idx)
-     return render(request, 'board/detail1.html')
+    #  print('board_idx :', board_idx)
+     dto = Board.objects.get(idx=board_idx)
+     dto.hit_up()
+     dto.save()
+     return render(request, 'board/detail1.html', {'dto' : dto})
+
+# delete : 삭제
+def delete(request, board_idx):
+    Board.objects.get(idx=board_idx).delete()
+    return redirect("/list/")

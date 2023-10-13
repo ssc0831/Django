@@ -37,6 +37,9 @@
 - django-admin startproject [project명]
 - 예시> django-admin startproject myDjango01
 - myDjango01로 이동
-### 프로젝트 앱 실행
+### 프로젝트 앱 실행 및 구동
 - python manage.py startapp myapp01
-
+- python manage.py makemigrations, python manage.py migrate(마이그레이션)
+- python manage.py runserver(서버 구동)
+- url.py, models.py, html(write.html, detail.html, detail1.html), views.py 수정 및 만들기
+- 파일 업로드하기(REST API 활용)
