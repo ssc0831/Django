@@ -22,3 +22,7 @@
 - DB 연결 및 DB 삽입, 선택 작업
 - PieChart 그리기(matplotlib 활용)
 - pip install lxml (xml 파싱 라이브러리) -> 패키지 설치
+
+### d03 Python Library
+#### 웹 크롤링 DB 연동 d02것 이어서
+- 날씨 정보 추출, 날짜별 최고기온, 최저기온 출력
