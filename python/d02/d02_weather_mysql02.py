@@ -34,3 +34,21 @@ plt.plot(xdata, high, label='최고기온')
 plt.title('부산 기온')
 plt.legend()
 plt.show()
+
+# 부산의 구름 많음, 맑음 날씨의 빈도 나타내기
+select_data1 = "select wf, count(*) from forecast where city='부산' group by wf"
+curr.execute(select_data1)
+result1 = curr.fetchall()
+print(result1)
+
+wfData = []
+wfCount = []
+for r in result1:
+    wfData.append(r[0])
+    wfCount.append(r[1])
+plt.bar(wfData, wfCount)
+plt.show()
+
+# PieChart로 그리기
+plt.pie(wfCount, labels=wfData, autopct='%.1f%%')
+plt.show()
