@@ -7,7 +7,13 @@
 </head>
 <body>
     <h3>Insert</h3>
+    <form action="/insert/" method="post" enctype="multipart/form-data">
+        writer: <input type="text" name="writer"><br />
+        title: <input type="text" name="title"><br />
+        content: <textarea name="content" rows="5" cols="50"></textarea><br />
+        file: <input type="file" name="file"><br />
+        <input type="submit" value="글쓰기">
+    </form>
 
-    
 </body>
 </html>

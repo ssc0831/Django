@@ -20,5 +20,8 @@ from myapp01 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('write_form/', views.write_form)
+    path('', views.list),
+    path('write_form/', views.write_form),
+    path('insert/', views.insert),
+    path('list/', views.list),
 ]

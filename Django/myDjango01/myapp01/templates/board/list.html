@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>LIST</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+                <th>첨부파일</th>
+                <th>파일이미지</th>
+                <th>다운로드</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for board in boardList %} <!-- Django에서의 반복문 시작 -->
+            <tr>
+                <td>{{board.idx}}</td>
+                <td>{{board.title}}</td>
+                <td>{{board.writer}}</td>
+                <td>{{board.post_date}}</td>
+                <td>{{board.hit}}</td>
+                <td>{{board.filename}}</td>
+                <td>파일이미지</td>
+                <td>{{board.down}}</td>
+            </tr>
+            {% endfor %} <!-- Django에서의 반복문 종료 -->
+        </tbody>
+    </table>
+</body>
+</html>
