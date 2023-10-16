@@ -60,11 +60,13 @@
         </tbody>
     </table>
     <br/><br/>
-   <!-- 이전 -->
+   
+    <!-- 이전 -->
    {% if startPage > blockPage %}
     <a href='?page={{startPage|add:-3}}&field={{field}}&word={{word}}'>이전</a>
    {% endif  %}
-   <!-- 페이지번호 -->
+      
+    <!-- 페이지번호 -->
    {% for i in range %}
     {% if i == currentPage %}
         [{{i}}]

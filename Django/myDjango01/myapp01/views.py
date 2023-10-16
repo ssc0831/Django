@@ -100,8 +100,11 @@ def list(request):
             'blockPage':blockPage,
             'endPage' : endPage,
             'totPage' : totPage,
+            'field' : field,
+            'word' : word,
             'range' : range(startPage, endPage+1),
             'currentPage' : currentPage}
+
     return render(request, 'board/list.html',context)
 
  # detail_idx : 상세보기  /detail_idx?idx=1
