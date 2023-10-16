@@ -100,3 +100,32 @@ def download(request):
 def update_form(request, board_idx):
      dto = Board.objects.get(idx=board_idx)
      return render(request, 'board/update.html', {'dto' : dto})
+
+# update
+@csrf_exempt
+def update(request):
+    id = request.POST['idx']
+    dto = Board.objects.get(idx=id)
+    fname = dto.filename
+    fsize = dto.filesize
+
+## file 수정
+    if 'file' in request.FILES:
+            file = request.FILES['file']
+            fsize = file.size
+            fname = file.name
+            fp = open('%s%s' %(UPLOAD_DIR, fname), 'wb')
+            for chunk in file.chunks():
+                fp.write(chunk)
+            fp.close()
+
+    dto_update = Board(id,
+                    writer=request.POST['writer'],
+                    title=request.POST['title'],
+                    content=request.POST['content'],
+                    filename=fname,
+                    filesize=fsize)
+    dto_update.save()
+
+
+    return redirect("/list/")

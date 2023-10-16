@@ -28,6 +28,7 @@ urlpatterns = [
     path('detail/<int:board_idx>/', views.detail), # detail/1 과 같은 형태의 의미(REST API 형태의 주소 받기)
     path('delete/<int:board_idx>/', views.delete),
     path('update_form/<int:board_idx>/', views.update_form),
+    path('update/', views.update),
     path('download_count/', views.download_count),
     path('download/', views.download),
 ]
