@@ -52,5 +52,5 @@
 - 삭제, 댓글추가, 게시판
 - import math(반올림, 버림 사용)
 ### HTML5에서의 Header, Body, Footer를 활용한 방식의 Django 구축
-- STATICFILES_DIRS, BASE_DIR 이용하여 경로가 잡기
+- STATICFILES_DIRS, BASE_DIR 이용하여 경로 잡기
 - {% block content %}, {% endblock %}, {% block script %}, {% endblock %}
