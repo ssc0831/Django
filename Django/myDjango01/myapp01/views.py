@@ -11,7 +11,7 @@ import math
 # Create your views here.
 
 
-UPLOAD_DIR ='C:/Django_Works/upload'
+UPLOAD_DIR ='C:/Django_Works/upload/'
 # write_from
 def write_form(request):
     return render(request,'board/write.html')
