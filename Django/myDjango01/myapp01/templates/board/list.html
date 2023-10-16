@@ -62,7 +62,7 @@
     <br/><br/>
    <!-- 이전 -->
    {% if startPage > blockPage %}
-    <a href='?page={{i}}'>이전</a>
+    <a href='?page={{startPage[add:-3]}}'>이전</a>
    {% endif  %}
    <!-- 페이지번호 -->
    {% for i in range %}
