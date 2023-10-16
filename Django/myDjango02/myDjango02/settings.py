@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp02'
+    'myapp02',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +119,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR /'static', # static 등록을 추가로 해줘야 작동함.
+    BASE_DIR /'static', # static 등록을 추가로 해줘야 경로가 잡혀서 작동함.
 ]
 
 # Default primary key field type
