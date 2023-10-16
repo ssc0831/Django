@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from myapp01.models import Board
-from django.http.response import JsonResponse
+from django.http.response import JsonResponse,HttpResponse
+import urllib.parse
 
 
 
@@ -80,3 +81,22 @@ def download_count(request):
      count = dto.down # 다운로드 수
      print('count', count)
      return JsonResponse({'idx' : id, 'count' : count})
+
+# download
+def download(request):
+    id = request.GET['idx']
+    dto = Board.objects.get(idx=id)
+    path = UPLOAD_DIR + dto.filename
+    # filename = urllib.parse.quote(dto.filename)
+    filename = dto.filename
+
+    with open(path , 'rb') as file :
+        response = HttpResponse(file.read(), 
+                                 content_type = 'application/octet-stream')
+        response['Content-Disposition'] = "attachment; filename*=UTF-8'{0}".format(filename) # filename 지정 없이 dto.filename을 써도 됨.
+        return response
+    
+# update_form
+def update_form(request, board_idx):
+     dto = Board.objects.get(idx=board_idx)
+     return render(request, 'board/update.html', {'dto' : dto})

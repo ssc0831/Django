@@ -14,7 +14,7 @@
     content : {{dto.content}} <br />
     date : {{dto.post_date}} <br /> <!-- post_date 뒤에 |time: 'Y-m-d H:i' : 시간포맷 변경할 때 추가-->
     file : {{dto.filename}} <br />
-    <a href="">수정</a>
+    <a href="/update_form/{{dto.idx}}">수정</a>
     <a href="/delete/{{dto.idx}}/">삭제</a>
 </body>
 </html>
