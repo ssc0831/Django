@@ -53,7 +53,8 @@
             type: 'GET',
             success: function(data) {
                 alert(data.count);
-                _imgs.parents().find('.downcount')
+                _imgs.parents().find('.downCnt').text(data.count)
+                location.href="/download?idx="+data.idx
             }
         })
     })   
