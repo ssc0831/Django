@@ -21,3 +21,10 @@ class Board(models.Model):
 # 파일 다운로드 수 증가
     def down_up(self):
         self.down += 1
+
+class Comment(models.Model):
+    idx = models.AutoField(primary_key=True)
+    board_idx = models.IntegerField(null=False)
+    writer = models.CharField(null=False, max_length=50)
+    content = models.TextField(null=False)
+    post_date = models.DateTimeField(default=datetime.now, blank=True)

@@ -21,10 +21,11 @@
 
     <h4>Comment</h4>
     <form action="/comment/insert/" method="post">
-        <input type="hidden" name="idx" value="{{dto.idx}}">
+        <input type="hidden" name="idx" value="{{dto.idx}}" />
         <textarea name="content" rows="5" cols="50" placeholder="Comment_insert">
         </textarea>
     </form>
+    <button type="submit" value="댓글전송"></button>
 
 </body>
 </html>

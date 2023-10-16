@@ -131,8 +131,12 @@ def update(request):
     return redirect("/list/")
 
 # Comment
+@csrf_exempt
 def comment_insert(request):
     id = request.POST['idx']
-
+    cdto = Comment(board_idx = id,
+                   writer = 'aa',
+                   content = request.POST['content'])
+    cdto.save()
     return redirect("detail/"+id)
     # return redirect("detail_idx?idx="+id)
