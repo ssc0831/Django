@@ -39,8 +39,8 @@
                     <img src="{% static '/images/file.jpg' %}" />
                     </span>
                     {% endif %}
+                    <td class="downCnt">{{board.down}}
                 </td>
-                <td>{{board.down}}</td>
             </tr>
             {% endfor %} <!-- Django에서의 반복문 종료 -->
         </tbody>
@@ -49,10 +49,11 @@
         $("._imgs").on('click', function(){
         _imgs = $(this)
         $.ajax({
-            url: $(this).data('url'), // $(this).attr('data-url') could also work
+            url: $(this).data('url'), // $(this).attr('data-url')
             type: 'GET',
             success: function(data) {
                 alert(data.count);
+                _imgs.parents().find('.downcount')
             }
         })
     })   
