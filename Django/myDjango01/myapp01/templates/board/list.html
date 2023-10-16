@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
 </head>
 <body>
     <h3>LIST // <a href="/write_form/">Insert</a></h3>
@@ -34,7 +35,9 @@
                 <td>{{board.filename}}</td>
                 <td>
                     {% if board.filesize > 0 %}
-                    <img src="{% static 'images/file.jpg' %}">
+                    <span class="_imgs" data-url="/download_count?idx={{board.idx}}"
+                    <img src="{% static '/images/file.jpg' %}" />
+                    </span>
                     {% endif %}
                 </td>
                 <td>{{board.down}}</td>
@@ -42,5 +45,17 @@
             {% endfor %} <!-- Django에서의 반복문 종료 -->
         </tbody>
     </table>
+        <script>
+        $("._imgs").on('click', function(){
+        _imgs = $(this)
+        $.ajax({
+            url: $(this).data('url'), // $(this).attr('data-url') could also work
+            type: 'GET',
+            success: function(data) {
+                alert(data.count);
+            }
+        })
+    })   
+        </script>
 </body>
 </html>

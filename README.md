@@ -47,3 +47,4 @@
 ### 파일 업로드
 - 파일 업로드 이어서
 - {% load static %}, {% if board.filesize > 0 %}~{% endif %} 문법
+- from django.http.response import JsonResponse(JSON 객체 불러오기)

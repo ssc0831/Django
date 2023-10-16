@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from myapp01.models import Board
+from django.http.response import JsonResponse
+
+
+
 # Create your views here.
 
 
@@ -65,3 +69,14 @@ def detail(request, board_idx):
 def delete(request, board_idx):
     Board.objects.get(idx=board_idx).delete()
     return redirect("/list/")
+
+# download_count : 다운로드 횟수 증가
+def download_count(request):
+     id = request.GET['idx']
+     print('id', id)
+     dto = Board.objects.get(idx=id)
+     dto.down_up() # 다운로드 수 증가
+     dto.save()
+     count = dto.down # 다운로드 수
+     print('count', count)
+     return JsonResponse({'idx' : id, 'count' : count})
