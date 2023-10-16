@@ -129,3 +129,10 @@ def update(request):
 
 
     return redirect("/list/")
+
+# Comment
+def comment_insert(request):
+    id = request.POST['idx']
+
+    return redirect("detail/"+id)
+    # return redirect("detail_idx?idx="+id)

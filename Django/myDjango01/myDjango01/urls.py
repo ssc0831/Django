@@ -31,4 +31,5 @@ urlpatterns = [
     path('update/', views.update),
     path('download_count/', views.download_count),
     path('download/', views.download),
+    path('comment_insert/', views.comment_insert),
 ]

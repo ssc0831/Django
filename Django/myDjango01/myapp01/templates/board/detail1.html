@@ -16,5 +16,15 @@
     file : {{dto.filename}} <br />
     <a href="/update_form/{{dto.idx}}">수정</a>
     <a href="/delete/{{dto.idx}}/">삭제</a>
+
+    <br/><br/>
+
+    <h4>Comment</h4>
+    <form action="/comment/insert/" method="post">
+        <input type="hidden" name="idx" value="{{dto.idx}}">
+        <textarea name="content" rows="5" cols="50" placeholder="Comment_insert">
+        </textarea>
+    </form>
+
 </body>
 </html>
