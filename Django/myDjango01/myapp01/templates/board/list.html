@@ -62,21 +62,21 @@
     <br/><br/>
    <!-- 이전 -->
    {% if startPage > blockPage %}
-    <a href='?page={{startPage[add:-3]}}'>이전</a>
+    <a href='?page={{startPage|add:-3}}&field={{field}}&word={{word}}'>이전</a>
    {% endif  %}
    <!-- 페이지번호 -->
    {% for i in range %}
     {% if i == currentPage %}
         [{{i}}]
     {% else %}    
-        <a href='?page={{i}}'>{{i}}</a>
+        <a href='?page={{i}&field={{field}}&word={{word}}}'>{{i}}</a>
     {% endif%}
     
    {% endfor %}
 
    <!-- 다음 -->
    {% if  endPage  < totPage %}
-    <a href='?page={{endPage|add:1}}'>다음</a> <!-- a href="?page={{{i}|add+1}}">{{i}}</a> 도 사용할 수 있음 -->
+    <a href='?page={{endPage|add:1}&field={{field}}&word={{word}}}'>다음</a> <!-- a href="?page={{{i}|add+1}}">{{i}}</a> 도 사용할 수 있음 -->
    {% endif  %}
 
 
