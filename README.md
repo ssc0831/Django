@@ -43,3 +43,7 @@
 - python manage.py runserver(서버 구동)
 - url.py, models.py, html(write.html, detail.html, detail1.html), views.py 수정 및 만들기
 - 파일 업로드하기(REST API 활용)
+
+### 파일 업로드
+- 파일 업로드 이어서
+- {% load static %}, {% if board.filesize > 0 %}~{% endif %} 문법

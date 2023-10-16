@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,11 @@
                 <td>{{board.post_date}}</td>
                 <td>{{board.hit}}</td>
                 <td>{{board.filename}}</td>
-                <td>파일이미지</td>
+                <td>
+                    {% if board.filesize > 0 %}
+                    <img src="{% static 'images/file.jpg' %}">
+                    {% endif %}
+                </td>
                 <td>{{board.down}}</td>
             </tr>
             {% endfor %} <!-- Django에서의 반복문 종료 -->
