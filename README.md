@@ -49,7 +49,8 @@
 - {% load static %} => Bootstrap, JQuery 등 로컬 파일 불러들이는 문법, 첫줄에 적어준다.
 - {% if board.filesize > 0 %}~{% endif %} 문법
 - from django.http.response import JsonResponse(JSON 객체 불러오기)
-- 삭제, 댓글추가, 게시판
+- 삭제, 댓글추가, 게시판, 검색설정
+- Q객체 (from django.db.models import Q) Django에서 SQL을 처리할 때 WHERE AND, OR, NOT의 필터링을 정의하는 연산자로 사용
 - import math(반올림, 버림 사용)
 ### HTML5에서의 Header, Body, Footer를 활용한 방식의 Django 구축
 - STATICFILES_DIRS, BASE_DIR 이용하여 경로 잡기
