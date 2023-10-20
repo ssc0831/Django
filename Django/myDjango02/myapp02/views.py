@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from myapp02.models import Board
 from .form import UserForm
+from django.db.models import Q
+
+import urllib.parse
+import math
 
 # Create your views here.
 
@@ -47,3 +51,24 @@ def insert(request):
                 )    
     board.save()
     return redirect("/list/")
+
+
+# list
+def list(request):
+    boardList =  Board.objects.all()
+    boardCount = Board.objects.all().count
+    context = {'boardList' : boardList, 'boardCount': boardCount}
+    # return render(request, 'board/list.html',context)
+
+# page
+    pageSize = 5
+    blockPage = 3
+    currentPage = int(page)
+### 123 [다음]    [이전]456[다음]    [이전] 7(89) 
+    totPage  = math.ceil(boardCount/pageSize)   # 총 페이지 수 (7)
+    startPage = math.floor((currentPage-1)/blockPage)*blockPage+1
+    endPage = startPage+ blockPage - 1 # 9  (현재 페이지가 7 이라면)
+    if  endPage > totPage :
+        endPage = totPage
+
+    start = (currentPage-1)*pageSize

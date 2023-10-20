@@ -66,7 +66,7 @@ def list(request):
     else:
         boardCount = Board.objects.all().count
 
-# Q객체란 장고에서 제공하는 기능으로 SQL로는 WHERE AND, OR, NOT 조건을 추가해주는 것이다.
+# Q객체란 장고에서 제공하는 기능으로 WHERE AND, OR, NOT 조건을 추가해주는 것이다.
 # Q객체를 활용하면 복잡한 필터링을 편하게 실행할 수 있다.
 
 # page
