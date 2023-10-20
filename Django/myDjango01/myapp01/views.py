@@ -51,6 +51,7 @@ def list(request):
     page = request.GET.get('page',1)
     word = request.GET.get('word', '')
     field = request.GET.get('field', 'title')
+    
     #count
     if field=='all':
         boardCount = Board.objects.filter(Q(writer__contains=word)|
@@ -64,16 +65,17 @@ def list(request):
     elif field =='content':
         boardCount = Board.objects.filter(Q(content__contains=word)).count()
     else:
-        boardCount = Board.objects.all().count
+        boardCount = Board.objects.all().count()
 
 # Q객체란 장고에서 제공하는 기능으로 WHERE AND, OR, NOT 조건을 추가해주는 것이다.
 # Q객체를 활용하면 복잡한 필터링을 편하게 실행할 수 있다.
 
-# page
+    # page
     pageSize = 5
     blockPage = 3
     currentPage = int(page)
-### 123 [다음]    [이전]456[다음]    [이전] 7(89) 
+
+    ### 123 [다음]    [이전]456[다음]    [이전] 7(89) 
     totPage  = math.ceil(boardCount/pageSize)   # 총 페이지 수 (7)
     startPage = math.floor((currentPage-1)/blockPage)*blockPage+1
     endPage = startPage+ blockPage - 1 # 9  (현재 페이지가 7 이라면)
