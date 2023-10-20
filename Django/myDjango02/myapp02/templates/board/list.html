@@ -1,13 +1,9 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
-</head>
-<body>
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-end"
     <h3>LIST({{boardCount}}) // <a href="/write_form">Insert</a></h3>
     <form action="/list" method="get">
         <select name="field" id="field">
@@ -98,6 +94,7 @@
 
 
 
-   </script> 
+   </script>
+   </div>
 </body>
 </html>
