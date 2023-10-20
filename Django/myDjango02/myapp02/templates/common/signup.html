@@ -26,7 +26,8 @@
 
     <div class="form-group">
     <label for="email">이메일:</label>
-    <input type="text" class="form-control" id="email" name="email">
+    <input type="text" class="form-control" id="email" name="email"
+    value="{{form.email.value | default_if_none:''}}">
     </div>
 
     <button type="submit" class="btn btn-primary">회원가입하기</button>
