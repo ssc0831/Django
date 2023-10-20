@@ -55,3 +55,6 @@
 ### HTML5에서의 Header, Body, Footer를 활용한 방식의 Django 구축
 - STATICFILES_DIRS, BASE_DIR 이용하여 경로 잡기
 - {% block content %}, {% endblock %}, {% block script %}, {% endblock %}
+
+### Django 활용
+- 회원가입 폼 활용하기(django.contrib.auth 활용)

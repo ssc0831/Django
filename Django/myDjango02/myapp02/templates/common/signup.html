@@ -3,15 +3,17 @@
 {% block content %}
 <div class="container">
 <h2>회원가입</h2>
-<form>
+<form method="post">
+    {% csrf_token %}
+    {% include "form_errors.html" %}
     <div class="form-group">
     <label for="username">사용자이름</label>
-    <input type="text" class="form-control" id="username" placeholder="Enter writer" name="username">
+    <input type="text" class="form-control" id="username" name="username">
     </div>
 
     <div class="form-group">
-    <label for="password">비밀번호</label>
-    <input type="password" class="form-control" id="password" name="password">
+    <label for="password1">비밀번호</label>
+    <input type="password1" class="form-control" id="password" name="password">
     </div>
 
     <div class="form-group">
