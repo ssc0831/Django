@@ -25,7 +25,7 @@ def insert(request):
         file = request.FILES['file']
         fsize = file.size
         fname = file.name
-        fp =open('%s%s' %(UPLOAD_DIR,fname ), 'wb')
+        fp =open('%s%s' %(UPLOAD_DIR, fname), 'wb')
         for  chunk  in file.chunks():
             fp.write(chunk)
         fp.close()    
