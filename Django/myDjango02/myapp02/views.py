@@ -4,6 +4,11 @@ from myapp02.models import Board
 
 # Create your views here.
 
+# signup
+def signup(request):
+    return render(request, 'common/signup.html')
+
+
 UPLOAD_DIR ='C:/Django_Works/upload/'
 # write_form
 def write_form(request):
