@@ -55,10 +55,23 @@ def insert(request):
 
 # list
 def list(request):
-    boardList =  Board.objects.all()
-    boardCount = Board.objects.all().count
-    context = {'boardList' : boardList, 'boardCount': boardCount}
-    # return render(request, 'board/list.html',context)
+    page = request.GET.get('page',1)
+    word = request.GET.get('word', '')
+    field = request.GET.get('field', 'title')
+    #count
+    if field=='all':
+        boardCount = Board.objects.filter(Q(writer__contains=word)|
+                                        Q(title__contains=word)|
+                                        Q(content__contains=word)).count()
+
+    elif field == 'writer':
+        boardCount = Board.objects.filter(Q(writer__contains=word)).count()
+    elif field =='title':
+        boardCount = Board.objects.filter(Q(title__contains=word)).count()
+    elif field =='content':
+        boardCount = Board.objects.filter(Q(content__contains=word)).count()
+    else:
+        boardCount = Board.objects.all().count
 
 # page
     pageSize = 5
