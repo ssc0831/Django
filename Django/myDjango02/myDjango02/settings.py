@@ -119,7 +119,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR /'static', # static 등록을 추가로 해줘야 경로가 잡힘
+    BASE_DIR /'static', # static 등록을 추가로 해줘야 경로가 잡혀서 작동한다.
 ]
 
 # Default primary key field type
