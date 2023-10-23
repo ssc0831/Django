@@ -1,5 +1,5 @@
 import re
-from konlpy.tag import Okt
+from konlpy.tag import Okt # 한글 자연어 처리(형태소) 분석 패키지
 from collections import Counter
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
@@ -22,15 +22,15 @@ def make_wordCloud(data):
     count = Counter(message_N)
     word_count = dict()
     for tag, counts in count.most_common(80):
-        print("%s : %d" %(tag))
+        print("%s : " % (tag))
         if(len(str(tag)) > 1):
-            print("%s : %d" %(tag, counts))
+            word_count[tag] = counts
+            print("%s : %d" % (tag, counts))
     
-        font_path = 'C:/Windows/font/malgun.ttf/'
-        wc = WordCloud(font_path, background_color='ivory', width=800, height=600)
-        cloud = wc.generate_from_frequencies()
-        plt.figure(figsize=(0,0))
-        plt.imshow(cloud)
-        plt.axis('off')
-        cloud.to_file('./static/images/k_wordCloud.png')
-    return
+    font_path = "C:/Windows/font/malgun.ttf"
+    wc = WordCloud(font_path, background_color="ivory", width=800, height=600)
+    cloud = wc.generate_from_frequencies(word_count)
+    plt.figure(figsize=(0,0))
+    plt.imshow(cloud)
+    plt.axis('off')
+    cloud.to_file('./static/images/k_wordCloud.png')

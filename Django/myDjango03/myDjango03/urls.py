@@ -26,7 +26,7 @@ urlpatterns = [
     path('write_form/', views.write_form),
     path('insert/', views.insert),
 
-    #WordCloud#
+    # WordCloud #
     path('wordcloud/', views.wordcloud),
 
 
