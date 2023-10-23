@@ -3,54 +3,55 @@ from django.views.decorators.csrf import csrf_exempt
 from myapp02.models import Board
 from .form import UserForm
 from django.db.models import Q
-
-import urllib.parse
+from django.core.paginator import Paginator
 import math
 
 # Create your views here.
 
-# signup
-def signup(request):
+UPLOAD_DIR = 'D:\\____BIG13_JUNG\\__LECTURE\\DjangoWork\\upload\\'
+
+# singup
+def singup(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            print("Aa")
             form.save()
+            # return redirect('/')
         else:
-            print("bbb")
+           print("signup POST un_valid'")     
     else:
         form = UserForm()
 
-    return render(request, 'common/signup.html', {'form' : form})
+    return render(request, 'common/signup.html', {'form' :form })
 
-
-UPLOAD_DIR ='C:/Django_Works/upload/'
-# write_form
+#######################
+#write_form
 def write_form(request):
     return render(request, 'board/insert.html')
 
-# insert
+#insert
 @csrf_exempt
 def insert(request):
-    fname = ''
-    fsize =0
-    if 'file' in request.FILES :
-        file = request.FILES['file']
-        fsize = file.size
-        fname = file.name
-        fp = open('%s%s' %(UPLOAD_DIR, fname), 'wb')
-        for  chunk  in file.chunks():
-            fp.write(chunk)
-        fp.close()    
+    fname=''
+    fsize=0
 
-    board = Board(writer=request.POST['writer'],
-                title =request.POST['title'],
-                content = request.POST['content'],
-                filename = fname,
-                filesize = fsize               
-                )    
+    if 'file' in request.FILES:
+        file = request.FILES['file']
+        fname = file.name
+        fsize = file.size
+        
+        fp = open('%s%s' %(UPLOAD_DIR, fname),'wb')
+        for chunk in file.chunks():
+            fp.write(chunk)
+        fp.close()  
+    
+    board = Board(writer = request.POST['writer'],
+                  title = request.POST['title'],
+                  content = request.POST['content'],
+                  filename = fname,
+                  filesize = fsize )
     board.save()
-    return redirect("/list/")
+    return redirect('/list')
 
 
 # list
@@ -123,4 +124,34 @@ def list(request):
              'field':field,
              'word':word,
              'range' : range(startPage, endPage+1)}
-  return render(request, 'board/list.html',context)
+  return render(request, 'board/list.html',context)      
+
+# list_page
+def list_page(request):
+   page = request.GET.get('page', 1)
+   word = request.GET.get('word','')
+
+   boardCount = Board.objects.filter(
+      Q(writer__contains = word)|
+      Q(title__contains=word) |
+      Q(content__contains=word)).count()
+   
+   boardList = Board.objects.filter(
+      Q(writer__contains = word)|
+      Q(title__contains=word) |
+      Q(content__contains=word)).order_by('-id')
+   
+     #페이징 처리
+   pageSize = 5
+
+   paginator = Paginator(boardList,pageSize)
+   page_obj = paginator.get_page(page)
+   print('page_obj :' , page_obj)
+
+
+   context = {
+      'boardCount' : boardCount,
+      'page_list' : page_obj,
+   }
+
+   return render(request, 'board/list_page.html',context)

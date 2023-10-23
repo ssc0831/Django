@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x)921^)7$+yr3@z-@k(tilg)rpryodbbt7+n9z+)dsrcixp4o='
+SECRET_KEY = 'django-insecure-&rz(6fq65gdjz#p-km-nl8kd1!hy6px*!hv%h^a!!=i!vrg6w9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,13 +77,14 @@ WSGI_APPLICATION = 'myDjango02.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangodb',
-        'USER' : 'root',
-        'PASSWORD' : 'root',
-        'HOST' : 'localhost',
-        'PORT' : '3306',
+        'NAME':  'djangodb',
+        'USER': 'root',
+        'PASSWORD':'root',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -110,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'ko'
 TIME_ZONE = 'Asia/Seoul'
 USE_I18N = True
-USE_L10N = True
 USE_TZ = False
 
 
@@ -119,7 +119,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR /'static', # static 등록을 추가로 해줘야 경로가 잡혀서 작동함.
+    BASE_DIR /'static',
 ]
 
 # Default primary key field type

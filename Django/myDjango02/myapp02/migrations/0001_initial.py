@@ -16,6 +16,8 @@ class Migration(migrations.Migration):
             name='Board',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('writer', models.CharField(max_length=50)),
+                ('title', models.CharField(max_length=200)),
                 ('content', models.TextField()),
                 ('hit', models.IntegerField(default=0)),
                 ('post_date', models.DateTimeField(blank=True, default=datetime.datetime.now)),

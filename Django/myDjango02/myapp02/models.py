@@ -4,8 +4,8 @@ from datetime import datetime
 # Create your models here.
 
 class Board(models.Model):
-    writer = models.CharField(null=False, max_length=50),
-    title = models.CharField(null=False, max_length=200),
+    writer = models.CharField(null=False, max_length=50)
+    title = models.CharField(null=False, max_length=200)
     content = models.TextField(null=False)
     hit = models.IntegerField(default=0)
     post_date = models.DateTimeField(default=datetime.now, blank=True)
@@ -15,6 +15,6 @@ class Board(models.Model):
 
     def hit_up(self):
         self.hit += 1
-    
+
     def down_up(self):
-        self.down += 1
+        self.down +=1    

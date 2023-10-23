@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.list),
     path('list/', views.list),
+    path('list_page/', views.list_page),
     path('write_form/', views.write_form),
     path('insert/', views.insert),
    #############
@@ -30,5 +31,5 @@ urlpatterns = [
          auth_views.LoginView.as_view(template_name='common/login.html'),
          name='login'),
     path('logout/',auth_views.LogoutView.as_view(), name='logout'),         
-    path('signup/', views.signup),
+    path('signup/', views.singup),
 ]
