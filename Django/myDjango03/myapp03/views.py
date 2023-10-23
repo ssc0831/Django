@@ -10,7 +10,7 @@ import math
 
 UPLOAD_DIR = 'C:/Django_Works/upload/'
 
-# singup
+# signup
 def signup(request):
     if request.method == "POST":
         form = UserForm(request.POST)
