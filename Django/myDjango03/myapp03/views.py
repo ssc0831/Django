@@ -5,11 +5,20 @@ from .form import UserForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+import json
+from myapp03 import dataProcess
 import math
 
 # Create your views here.
 
 UPLOAD_DIR = 'C:/Django_Works/upload/'
+
+# WordCloud
+def wordcloud(request):
+   a_path = 'C:/Django_Works/Django/myDjango03/data/'
+   data = json.loads(open(a_path+'4차 산업혁명.json', 'r',
+                          encoding='utf-8').read())
+   dataProcess.make_wordCloud(data)
 
 # signup
 def signup(request):
@@ -47,7 +56,7 @@ def insert(request):
             fp.write(chunk)
         fp.close()  
     
-    board = Board(writer = request.POST['writer'],
+    board = Board(writer = request.user,
                   title = request.POST['title'],
                   content = request.POST['content'],
                   filename = fname,

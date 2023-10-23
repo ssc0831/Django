@@ -22,8 +22,12 @@ from myapp03 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('list/', views.list),
+    path('', views.list),
     path('write_form/', views.write_form),
     path('insert/', views.insert),
+
+    #WordCloud#
+    path('wordcloud/', views.wordcloud),
 
 
    #### Login, LogOut Authentication ####
