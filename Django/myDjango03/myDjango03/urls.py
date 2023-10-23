@@ -28,6 +28,7 @@ urlpatterns = [
 
     # WordCloud #
     path('wordcloud/', views.wordcloud),
+    path('wordcloud2/', views.wordcloud2),
 
 
    #### Login, LogOut Authentication ####

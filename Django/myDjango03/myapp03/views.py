@@ -22,6 +22,14 @@ def wordcloud(request):
    return render(request, 'bigdata/word.html',
                  {'img_data' : 'k_wordCloud.png'})
 
+def wordcloud2(request):
+   a_path = 'C:/Django_Works/Django/myDjango03/data/'
+   data = json.loads(open(a_path+'4차 산업혁명.json', 'r',
+                          encoding='utf-8').read())
+   dataProcess.make_wordCloud2(data)
+   return render(request, 'bigdata/word.html',
+                 {'img_data' : 'pytag_word.png'})
+
 # signup
 def signup(request):
     if request.method == "POST":

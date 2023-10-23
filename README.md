@@ -67,3 +67,6 @@
 - python manage.py createsuperuser 슈퍼유저 만들기
 - pip install konlpy (한국어 자연어 처리를 위한 라이브러리(한글 형태소 분석 라이브러리) - JRE 필요)
 - {% get_static_prefix %} static을 참조하여 파일을 가져올 때 사용
+- pip install pytagcloud (단어 클라우드 만드는 라이브러리)
+- pip install pygame (프로토타이핑 라이브러리)
+- pip install simplejson(JSON 데이터 다루는 라이브러리)

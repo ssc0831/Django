@@ -3,6 +3,7 @@ from konlpy.tag import Okt # 한글 자연어 처리(형태소) 분석 패키지
 from collections import Counter
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+import pytagcloud
 
 def make_wordCloud(data):
     # Regular Expression(정규표현식)
@@ -34,3 +35,24 @@ def make_wordCloud(data):
     plt.imshow(cloud)
     plt.axis('off')
     cloud.to_file('./static/images/k_wordCloud.png')
+
+def make_wordCloud2(data):
+    message = ''
+    for item in data:
+        if 'message' in item.keys():
+            message = message + re.sub(r'[^\w]',' ', item['message'])+''
+    nlp = Okt()
+    message_N = nlp.nouns(message)  # 명사 추출
+    count = Counter(message_N)
+    word_count = dict()
+    for tag, counts in count.most_common(80):
+        print("%s : " % (tag))
+        if(len(str(tag)) > 1):
+            word_count[tag] = counts
+            print("%s : %d" % (tag, counts))
+
+    taglist = pytagcloud.make_tags(word_count.items(), maxsize=80)
+    pytagcloud.create_tag_image(taglist, './static/images/pytag_word.png', size=(600,400),
+                                fontname='Korean2',
+                                rectangular=False)
+
