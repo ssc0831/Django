@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from myapp03.models import Board, Comment
 from .form import UserForm
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 import math
 
@@ -26,6 +27,7 @@ def signup(request):
 
 #######################
 # write_form
+@login_required(login_url='/login')
 def write_form(request):
     return render(request, 'board/insert.html')
 

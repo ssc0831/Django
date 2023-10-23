@@ -21,15 +21,10 @@ from myapp03 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.list),
     path('list/', views.list),
-    path('list_page/', views.list_page),
     path('write_form/', views.write_form),
     path('insert/', views.insert),
-    path('detail/<int:board_id>/', views.detail),
 
-    ## Comment Insert ##
-    path('comment_insert/', views.comment_insert),
 
    #### Login, LogOut Authentication ####
     path('login/',
