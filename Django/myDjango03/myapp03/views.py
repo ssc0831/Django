@@ -19,6 +19,8 @@ def wordcloud(request):
    data = json.loads(open(a_path+'4차 산업혁명.json', 'r',
                           encoding='utf-8').read())
    dataProcess.make_wordCloud(data)
+   return render(request, 'bigdata/word.html',
+                 {'img_data' : 'k_wordCloud.png'})
 
 # signup
 def signup(request):

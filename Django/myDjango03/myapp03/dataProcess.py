@@ -26,7 +26,7 @@ def make_wordCloud(data):
         if(len(str(tag)) > 1):
             print("%s : %d" %(tag, counts))
     
-        font_path = 'C:/Windows/font/malgun.ttf'
+        font_path = 'C:/Windows/font/malgun.ttf/'
         wc = WordCloud(font_path, background_color='ivory', width=800, height=600)
         cloud = wc.generate_from_frequencies()
         plt.figure(figsize=(0,0))
