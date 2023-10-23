@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from myapp02.models import Board, Comment
+from myapp03.models import Board, Comment
 from .form import UserForm
 from django.db.models import Q
 from django.core.paginator import Paginator
