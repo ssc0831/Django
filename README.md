@@ -59,3 +59,4 @@
 ### Django 활용
 - 회원가입 폼 활용하기(django.contrib.auth 활용)
 - 유효성검사
+- 페이징

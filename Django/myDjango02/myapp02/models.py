@@ -18,3 +18,9 @@ class Board(models.Model):
 
     def down_up(self):
         self.down +=1    
+
+class Comment(models.Model):
+    board = models.ForeignKey(Board, on_delete=models.CASCADE)
+    writer = models.CharField(null=False, max_length=50)
+    content = models.TextField(null=False)
+    post_date = models.DateTimeField(default=datetime.now, blank=True)

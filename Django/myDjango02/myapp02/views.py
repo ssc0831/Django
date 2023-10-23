@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from myapp02.models import Board
+from myapp02.models import Board, Comment
 from .form import UserForm
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -8,7 +8,7 @@ import math
 
 # Create your views here.
 
-UPLOAD_DIR = 'D:\\____BIG13_JUNG\\__LECTURE\\DjangoWork\\upload\\'
+UPLOAD_DIR = 'C:/Django_Works/upload/'
 
 # singup
 def singup(request):
@@ -152,6 +152,26 @@ def list_page(request):
    context = {
       'boardCount' : boardCount,
       'page_list' : page_obj,
+      'word' : word
    }
 
    return render(request, 'board/list_page.html',context)
+
+
+# detail
+def detail(request, board_id):
+   board = Board.objects.get(id=board_id)
+   # 조회수 증가
+   board.hit_up()
+   board.save()
+   
+   return render(request, 'board/detail.html', {'board' :board})
+
+# comment_insert
+@csrf_exempt
+def comment_insert(request):
+   id = request.POST['id']
+   comment = Comment(writer='aa', board_id='id',
+                     content=request.POST['content'])
+   comment.save()
+   return redirect('/detail/'+id)

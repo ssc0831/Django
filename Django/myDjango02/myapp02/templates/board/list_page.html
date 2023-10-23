@@ -21,7 +21,7 @@
             <th>날짜</th>
             <th>조회수</th>
             <th>첨부파일</th>
-            <!-- <th>파일이미지</th> -->
+            <th> 파일이미지 </th>
             <th>다운로드</th>
           </tr>
         </thead>
@@ -30,7 +30,7 @@
             <tr>
                 <td>{{board.id}}</td>
                 <td>{{board.writer}}</td>
-                <td>{{board.title}}</td>
+                <td><a href="/detail/{{board.id}}">{{board.title}}</a></td>
                 <td>{{board.post_date|date:'Y-m-d'}}</td>
                 <td>{{board.hit}}</td>
                 <td>{{board.filename}}</td>
@@ -42,14 +42,13 @@
     <ul class="pagination">
         <!-- 이전 -->
         {% if page_list.has_previous %}
-        <li class="page-item"><a class ="page-link" href="">Previous</a></li>
+        <li class="page-item"><a class ="page-link" href="?page={{page_list.previous_page_number}&word={word}}">Previous</a></li>
         {% endif %}
             
         <!-- 다음 -->
         {% if page_list.has_next %}
-        <li class="page-item"><a  class ="page-link" href="">Next</a></li>
+        <li class="page-item"><a class ="page-link" href="?page={{page_list.next_page_number}&word={word}}">Next</a></li>
         {% endif %}
-
 
     </ul>    
 </div>

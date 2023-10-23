@@ -26,7 +26,12 @@ urlpatterns = [
     path('list_page/', views.list_page),
     path('write_form/', views.write_form),
     path('insert/', views.insert),
-   #############
+    path('detail/<int:board_id>/', views.detail),
+
+    ## Comment Insert ##
+    path('comment_insert/', views.comment_insert),
+
+   #### Login, LogOut Authentication ####
     path('login/',
          auth_views.LoginView.as_view(template_name='common/login.html'),
          name='login'),
