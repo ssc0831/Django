@@ -56,7 +56,8 @@
 - STATICFILES_DIRS, BASE_DIR 이용하여 경로 잡기
 - {% block content %}, {% endblock %}, {% block script %}, {% endblock %}
 
-### Django 활용
+### Django 활용(ORM 기반)
 - 회원가입 폼 활용하기(django.contrib.auth 활용)
 - 유효성검사
 - 페이징
+- python manage.py createsuperuser 슈퍼유저 만들기

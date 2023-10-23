@@ -171,7 +171,7 @@ def detail(request, board_id):
 @csrf_exempt
 def comment_insert(request):
    id = request.POST['id']
-   comment = Comment(writer='aa', board_id='id',
+   comment = Comment(writer='aa', board_id=id,
                      content=request.POST['content'])
    comment.save()
    return redirect('/detail/'+id)
