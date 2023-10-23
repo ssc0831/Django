@@ -25,11 +25,11 @@ def signup(request):
     return render(request, 'common/signup.html', {'form' :form })
 
 #######################
-#write_form
+# write_form
 def write_form(request):
     return render(request, 'board/insert.html')
 
-#insert
+# insert
 @csrf_exempt
 def insert(request):
     fname=''
@@ -141,7 +141,7 @@ def list_page(request):
       Q(title__contains=word) |
       Q(content__contains=word)).order_by('-id')
    
-     #페이징 처리
+# 페이징 처리
    pageSize = 5
 
    paginator = Paginator(boardList,pageSize)
