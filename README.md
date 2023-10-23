@@ -70,3 +70,4 @@
 - pip install pytagcloud (단어 클라우드 만드는 라이브러리)
 - pip install pygame (프로토타이핑 라이브러리)
 - pip install simplejson(JSON 데이터 다루는 라이브러리)
+- 폴더(C:\Python\Python311\Lib\site-packages\pytagcloud\fonts)에 폰트 다운로드해서 폰트 삽입하기
