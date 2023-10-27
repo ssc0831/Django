@@ -6,7 +6,7 @@ header = {'User-Agent' : 'Mozilla/5.0'}
 req = requests.get('https://www.melon.com/chart/index.htm', headers=header)
 soup = BeautifulSoup(req.text, 'html.parser')
 # print(soup)
-# BeautifulSoup으로 사용시 Celenium으로 할 때 Request 200이 떠서 되는 것이
+# BeautifulSoup으로 사용시 Selenium으로 할 때 Request 200이 떠서 되는 것이
 # 아무것도 뜨지 않기 때문에 헤더의 접속정보를 추가하여 알려줘야 함.
 
 #frm > div > table > tbody

@@ -30,6 +30,9 @@ urlpatterns = [
     path('wordcloud/', views.wordcloud),
     path('wordcloud2/', views.wordcloud2),
 
+    # Melon #
+    path('melon/', views.melon),
+
 
    #### Login, LogOut Authentication ####
     path('login/',

@@ -4,6 +4,8 @@ from collections import Counter
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import pytagcloud
+import requests
+from bs4 import BeautifulSoup
 
 def make_wordCloud(data):
     # Regular Expression(정규표현식)
@@ -56,3 +58,9 @@ def make_wordCloud2(data):
                                 fontname='Korean2',
                                 rectangular=False)
 
+def melon_crawling(datas):
+    header = {'User-Agent' : 'Mozilla/5.0'}
+    req = requests.get("https://www.melon.com/chart/index.htm", headers=header)
+    soup = BeautifulSoup(req.text, 'html.parser')
+
+    datas.append([])

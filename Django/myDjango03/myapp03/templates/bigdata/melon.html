@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container my-3">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>순위</td>
+            <td>곡명</td>
+            <td>가수</td>
+            <td>앨범</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sing in data %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>    
+{% endblock %}

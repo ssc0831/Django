@@ -13,6 +13,13 @@ import math
 
 UPLOAD_DIR = 'C:/Django_Works/upload/'
 
+# Melon
+def melon(request):
+   # 순위 곡명 가수 앨범
+   datas = []
+   dataProcess.melon_crawling(datas)
+   return render(request, "bigdata/melon.html", {'data': datas})
+
 # WordCloud
 def wordcloud(request):
    a_path = 'C:/Django_Works/Django/myDjango03/data/'
