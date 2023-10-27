@@ -33,6 +33,9 @@ urlpatterns = [
     # Melon #
     path('melon/', views.melon),
 
+    # Map #
+    path('map/', views.map),
+
 
    #### Login, LogOut Authentication ####
     path('login/',

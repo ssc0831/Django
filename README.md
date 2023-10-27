@@ -71,3 +71,8 @@
 - pip install pygame (프로토타이핑 라이브러리)
 - pip install simplejson(JSON 데이터 다루는 라이브러리)
 - 폴더(C:\Python\Python311\Lib\site-packages\pytagcloud\fonts)에 폰트 다운로드해서 폰트 삽입하기(네이버 마루부리 폰트)
+
+### Django 활용
+- melon chart 1~10위까지 뽑아보기
+- pip install folium
+- folium 활용 지도 띄우기

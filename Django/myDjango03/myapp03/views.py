@@ -21,6 +21,11 @@ def melon(request):
    # return render(request, "bigdata/melon.html", {'data': datas})
    return render(request, "bigdata/melon1.html", {'data': datas})
 
+# Map
+def map(request):
+   dataProcess.map()
+   return render(request, 'bigdata/map.html')
+
 # WordCloud
 def wordcloud(request):
    a_path = 'C:/Django_Works/Django/myDjango03/data/'
