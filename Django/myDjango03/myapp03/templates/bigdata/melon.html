@@ -12,13 +12,13 @@
         </tr>
     </thead>
     <tbody>
-        {% for sing in data %}
+        {% for s in data %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+            <td>{{s.rank}}</td>
+            <td>{{s.song}}</td>
+            <td>{{s.singer}}</td>
+            <td>{{s.album}}</td>
+        </tr>        
         {% endfor %}
     </tbody>
 </table>

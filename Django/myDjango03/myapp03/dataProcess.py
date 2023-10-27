@@ -62,5 +62,27 @@ def melon_crawling(datas):
     header = {'User-Agent' : 'Mozilla/5.0'}
     req = requests.get("https://www.melon.com/chart/index.htm", headers=header)
     soup = BeautifulSoup(req.text, 'html.parser')
+    #frm > div > table > tbody
+    tbody = soup.select_one('#frm > div > table > tbody')
+    #lst50
+    trs = tbody.select('tr#lst50')
 
-    datas.append([])
+    for tr in trs[:10]:
+        #lst50 > td:nth-child(2) > div > span.rank
+        rank = tr.select_one('span.rank').string
+        #lst50 > td:nth-child(6) > div > div.ellipsis.rank01 > span > a
+        song = tr.select_one('div.ellipsis.rank01 > span > a').string
+        #lst50 > td:nth-child(6) > div > div > div.ellipsis.rank02 > a
+        singer = tr.select_one('div.ellipsis.rank02 > a').string
+        #lst50 > td:nth-child(7) > div > div > div > a
+        album = tr.select_one('div.rank03 > a').get_text()
+        # datas.append([rank, song, singer, album]) # 리스트 append
+
+        tmp = dict()
+        tmp['rank'] = rank
+        tmp['song'] = song
+        tmp['singer'] = singer
+        tmp['album'] = album
+        datas.append(tmp) # dict append
+
+    print(datas)

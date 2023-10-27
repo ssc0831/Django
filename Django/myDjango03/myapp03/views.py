@@ -18,7 +18,8 @@ def melon(request):
    # 순위 곡명 가수 앨범
    datas = []
    dataProcess.melon_crawling(datas)
-   return render(request, "bigdata/melon.html", {'data': datas})
+   # return render(request, "bigdata/melon.html", {'data': datas})
+   return render(request, "bigdata/melon1.html", {'data': datas})
 
 # WordCloud
 def wordcloud(request):
