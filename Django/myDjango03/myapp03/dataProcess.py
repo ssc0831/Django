@@ -2,9 +2,10 @@ import re
 from konlpy.tag import Okt # 한글 자연어 처리(형태소) 분석 패키지
 from collections import Counter
 from wordcloud import WordCloud
+from myDjango03.settings import TEMPLATE_DIR
 import matplotlib.pyplot as plt
 import pytagcloud
-import requests
+import requests, os
 from bs4 import BeautifulSoup
 import pandas as pd
 import folium
@@ -113,3 +114,30 @@ def map():
     # 지도 띄우기
     m = folium.Map([lat,long], zoom_start=9)
     
+    for i in ex.index:
+        sub_lat = ex.loc[i, '위도']
+        sub_long = ex.loc[i, '경도']
+        title = ex.loc[i, '구분']
+        # 지도에 데이터 찍어서 보여주기(Marker)
+        folium.Marker([sub_lat, sub_long], tooltip=title).add_to(m)
+        m.save(os.path.join(TEMPLATE_DIR, 'bigdata/maptest.html'))
+
+# Movie Crawling
+def movie_crawling(data):
+    req = requests.get('https://movie.daum.net/ranking/reservation')
+    if req.ok:
+        soup = BeautifulSoup(req.text, 'html.parser')
+    
+    # 평점, 제목, 예매율 출력
+    ols = soup.select_one('#mainContent > div > div.box_ranking > ol')
+    rankcount = ols.select('li')
+    for i in rankcount:
+        title = i.find('a', class_='link_txt').get_text()
+        point = i.find('span', 'txt_grade').get_text()
+        reserve = i.find('span', {'class' : 'txt_num'}).get_text()
+        reserve = re.sub(r'[%]', '', reserve)
+        data.append([title, float(point), float(reserve)])
+        
+    # print(data)
+    
+    return data

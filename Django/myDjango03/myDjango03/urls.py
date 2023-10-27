@@ -36,6 +36,9 @@ urlpatterns = [
     # Map #
     path('map/', views.map),
 
+    # MovieChart #
+    path('moviechart/', views.movie_chart),
+
 
    #### Login, LogOut Authentication ####
     path('login/',

@@ -76,3 +76,8 @@
 - melon chart 1~10위까지 뽑아보기
 - pip install folium
 - folium 활용 지도 띄우기
+- TEMPLATE_DIR = os.path.join(BASE_DIR, 'myapp03/templates') 경로지정 추가
+- import os
+- from myDjango03.settings import TEMPLATE_DIR 추가
+- Pandas(groupby)
+

@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 import json
 from myapp03 import dataProcess
 import math
+import pandas as pd
 
 # Create your views here.
 
@@ -25,6 +26,21 @@ def melon(request):
 def map(request):
    dataProcess.map()
    return render(request, 'bigdata/map.html')
+
+# MovieChart
+def movie_chart(request):
+   data = []
+   dataProcess.movie_crawling(data)
+   # print(data)
+   df = pd.DataFrame(data, columns=['제목', '평점', '예매율'])
+   # print(df)
+   group_title = df.groupby('제목')
+   print(group_title)
+   # 제목별 그룹화해서 평점의 평균 구하기
+   group_mean = df.groupby('제목')['평점'].mean().sort_values(ascending=False).head(10)
+   print(group_mean)
+   # dataProcess.movie_daum_chart()
+   return render(request, 'bigdata/movie_daum.html')
 
 # WordCloud
 def wordcloud(request):

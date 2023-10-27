@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-3">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>제목</td>
+                <td>평점</td>
+                <td>예매율</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in data %}
+            <tr>
+                <td>{{s.title}}</td>
+                <td>{{s.point}}</td>
+                <td>{{s.reserve}}</td>
+            </tr>        
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    </div>    
+
+{% endblock %}
