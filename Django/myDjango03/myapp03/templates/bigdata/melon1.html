@@ -12,23 +12,13 @@
         </tr>
     </thead>
     <tbody>
-        {% for rank, song, singer, album in data %}
+        {% for s in data %}
         <tr>
-            <td>{{rank}}</td>
-            <td>{{song}}</td>
-            <td>{{singer}}</td>
-            <td>{{album}}</td>
-        </tr>
-        {% endfor %}
-        
-        <!-- Index 값으로도 접근이 가능하다.-->
-        {% for i in data %}
-        <tr>
-            <td>{{i.0}}</td>
-            <td>{{i.1}}</td>
-            <td>{{i.2}}</td>
-            <td>{{i.3}}</td>
-        </tr>
+            <td>{{s.rank}}</td>
+            <td>{{s.song}}</td>
+            <td>{{s.singer}}</td>
+            <td>{{s.album}}</td>
+        </tr>        
         {% endfor %}
     </tbody>
 </table>
