@@ -63,8 +63,9 @@ def movie_dbchart(request):
    data = Movie.objects.values('title').annotate(point_avg=Avg('point'))[0:10]
    # print('data query : ', data.query)
    df = pd.DataFrame(data)
-   print('data query : ', df)
-   # dataProcess.movie_chart()
+   # print('data query : ', df)
+   print('df : ', df)
+   dataProcess.movie_chart(df.title, df.point_avg)
    return render(request, 'bigdata/movie.html')
 
 # WordCloud
