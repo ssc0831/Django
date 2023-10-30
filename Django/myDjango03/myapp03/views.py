@@ -60,13 +60,15 @@ def movie(request):
 # Movie DB Chart
 def movie_dbchart(request):
    # movie 테이블에서 제목(title)에 해당하는 평점(point) 평균을 구하기
-   data = Movie.objects.values('title').annotate(point_avg=Avg('point'))[0:10]
+   data = Movie.objects.values('title').annotate(point_avg=Avg('point')).order_by('-point_avg')[0:10]
    # print('data query : ', data.query)
    df = pd.DataFrame(data)
    # print('data query : ', df)
    print('df : ', df)
    dataProcess.movie_chart(df.title, df.point_avg)
-   return render(request, 'bigdata/movie.html')
+   return render(request, 'bigdata/movie.html',
+                 {'img_data' : 'movie_fig.png'},
+                 {'data' : data})
 
 # WordCloud
 def wordcloud(request):
