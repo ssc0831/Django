@@ -58,6 +58,8 @@ def movie(request):
 
 # Movie DB Chart
 def movie_dbchart(request):
+   
+   dataProcess.movie_chart()
    return render(request, 'bigdata/movie.html')
 
 # WordCloud

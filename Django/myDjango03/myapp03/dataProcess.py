@@ -155,3 +155,16 @@ def movie_daum_chart(titles, points):
     plt.bar(range(len(titles)), points, align='center')
     plt.xticks(range(len(titles)),list(titles), rotation=30, fontsize=5)
     plt.savefig(os.path.join(STATIC_DIR, 'images\\movie_daum_fig.png'), dpi=300)
+
+# movie_chart
+def movie_chart(titles, points):
+    font_location = "C:/Windows/fonts/malgun.ttf"
+    font_name = font_manager.FontProperties(fname=font_location).get_name()
+    rc('font', family = font_name)
+    plt.cla()
+    plt.ylabel('영화평점')
+    plt.xlabel('영화제목')
+    plt.title('Top 10 영화평점')
+    plt.bar(range(len(titles)), points, align='center')
+    plt.xticks(range(len(titles)),list(titles), rotation=30, fontsize=5)
+    plt.savefig(os.path.join(STATIC_DIR, 'images\\movie_fig.png'), dpi=300)
