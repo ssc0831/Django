@@ -83,3 +83,5 @@
 
 - font_manager(Python의 기본 폰트 관리 모듈)
 - rc(Python의 설정 파일, Python 프로그램의 기본 설정을 지정)
+- annotate는 QuerySet에 추가적인 필드를 추가하는 기능이다.
+- django.db.models.aggregates 쿼리셋 집계 모듈이다.(다양한 집계 함수를 제공)

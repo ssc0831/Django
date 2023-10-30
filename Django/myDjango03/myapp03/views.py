@@ -5,6 +5,7 @@ from .form import UserForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models.aggregates import Count, Avg
 import json
 from myapp03 import dataProcess
 import math
@@ -58,8 +59,10 @@ def movie(request):
 
 # Movie DB Chart
 def movie_dbchart(request):
-   
-   dataProcess.movie_chart()
+   # movie 테이블에서 제목(title)에 해당하는 평점(point) 평균을 구하기
+   data = Movie.objects.values('title').annotate(point_avg=Avg('point'))[0:10]
+   print('data query : ', data.query)
+   # dataProcess.movie_chart()
    return render(request, 'bigdata/movie.html')
 
 # WordCloud
