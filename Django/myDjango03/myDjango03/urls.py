@@ -37,8 +37,9 @@ urlpatterns = [
     path('map/', views.map),
 
     # MovieChart #
-    path('moviechart/', views.movie_chart),
-
+    path('movie_chart/', views.movie_chart),
+    path('movie/', views.movie),
+    path('movie_dbchart/', views.movie_dbchart),
 
    #### Login, LogOut Authentication ####
     path('login/',

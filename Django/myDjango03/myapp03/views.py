@@ -42,9 +42,17 @@ def movie_chart(request):
    df1 = pd.DataFrame(group_mean, columns=['평점'])
    print(df1)
    dataProcess.movie_daum_chart(df1.index, df1.평점)
-   
+
    return render(request, 'bigdata/movie_daum.html',
                  {'img_data' : 'movie_daum_fig.png'})
+
+# Movie => DB 테이블 insert
+def movie(request):
+   return redirect('/')
+
+# Movie DB Chart
+def movie_dbchart(request):
+   return render(request, 'bigdata/movie.html')
 
 # WordCloud
 def wordcloud(request):
