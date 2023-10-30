@@ -189,8 +189,37 @@ def weather_crawling(last_data, weather):
     print(weather)
 
 # Weather Chart
-def weather_chart(result, wf, dcounts):
+def weather_chart(result, wfs, dcounts):
     font_location = "C:/Windows/fonts/malgun.ttf"
     font_name = font_manager.FontProperties(fname=font_location).get_name()
     rc('font', family = font_name)
+    high = []
+    low = []
+    xdata = []
     
+    for r in result.values_list():
+       # print(r)
+       high.append(r[5])
+       low.append(r[4])
+       xdata.append(r[2])
+    plt.cla()
+    plt.figure(figsize=(10,6))
+    plt.xticks(range(len(xdata)),list(xdata), rotation=30, fontsize=9)
+    plt.plot(xdata, low, label='최저기온')
+    plt.plot(xdata, high, label='최고기온')
+    plt.legend()
+    plt.savefig(os.path.join(STATIC_DIR, 'images\\weather_plot.png'), dpi=300)
+
+    plt.cla()
+    plt.bar(wfs, dcounts)
+    plt.savefig(os.path.join(STATIC_DIR, 'images\\weather_bar.png'), dpi=300)
+
+    plt.cla()
+    plt.pie(dcounts, labels=wfs, autopct='%.1f%%')
+    plt.savefig(os.path.join(STATIC_DIR, 'images\\weather_pie.png'), dpi=300)
+
+    image_dic = {'bar' : 'weather_bar.png',
+                 'plot' : 'weather_plot.png',
+                 'pie' : 'weather_pie.png'
+                }
+    return image_dic

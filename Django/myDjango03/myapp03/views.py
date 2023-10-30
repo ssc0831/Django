@@ -89,7 +89,9 @@ def weather(request):
    df = pd.DataFrame(result1)
    print('df', df)
    image_dic = dataProcess.weather_chart(result, df.wf, df.dcount)
-   return render(request, 'bigdata/weather.html')
+   print('image_dic : ', image_dic)
+   return render(request, 'bigdata/weather.html',
+                 {'img_data' : image_dic})
 
 # WordCloud
 def wordcloud(request):
