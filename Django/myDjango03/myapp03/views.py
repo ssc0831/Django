@@ -67,8 +67,7 @@ def movie_dbchart(request):
    print('df : ', df)
    dataProcess.movie_chart(df.title, df.point_avg)
    return render(request, 'bigdata/movie.html',
-                 {'img_data' : 'movie_fig.png'},
-                 {'data' : data})
+                 {'img_data' : 'movie_fig.png', 'data' : data})
 
 # WordCloud
 def wordcloud(request):
