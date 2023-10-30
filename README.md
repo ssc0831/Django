@@ -81,4 +81,5 @@
 - from myDjango03.settings import TEMPLATE_DIR 추가
 - Pandas(groupby) (pandas에서 groupby는 데이터를 특정 기준으로 그룹화하여 분석하는 기능이다.)
 
-- font_manager, rc
+- font_manager(Python의 기본 폰트 관리 모듈)
+- rc(Python의 설정 파일, Python 프로그램의 기본 설정을 지정)
