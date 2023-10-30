@@ -79,6 +79,6 @@
 - TEMPLATE_DIR = os.path.join(BASE_DIR, 'myapp03/templates') 경로지정 추가
 - import os
 - from myDjango03.settings import TEMPLATE_DIR 추가
-- Pandas(groupby)
+- Pandas(groupby) (pandas에서 groupby는 데이터를 특정 기준으로 그룹화하여 분석하는 기능이다.)
 
 - font_manager, rc

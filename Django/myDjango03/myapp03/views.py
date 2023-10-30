@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from myapp03.models import Board, Comment
+from myapp03.models import Board, Comment, Movie
 from .form import UserForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -51,6 +51,9 @@ def movie(request):
    data = []
    dataProcess.movie_crawling(data) # 이미 movie_crawling을 만들었기 때문에 따로 안 만들어도 됨
    # data가 들어 있는 순서 : title, point, reserve
+   for r in data:
+      movie = Movie(title = r[0], point = r[1], reserve = r[2])
+      movie.save()
    return redirect('/')
 
 # Movie DB Chart
