@@ -46,8 +46,11 @@ def movie_chart(request):
    return render(request, 'bigdata/movie_daum.html',
                  {'img_data' : 'movie_daum_fig.png'})
 
-# Movie => DB 테이블 insert
+# Movie => 테이블 insert
 def movie(request):
+   data = []
+   dataProcess.movie_crawling(data) # 이미 movie_crawling을 만들었기 때문에 따로 안 만들어도 됨
+   # data가 들어 있는 순서 : title, point, reserve
    return redirect('/')
 
 # Movie DB Chart

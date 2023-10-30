@@ -25,3 +25,8 @@ class Comment(models.Model):
     writer = models.CharField(null=False,max_length=50)
     content = models.TextField(null=False)
     post_date = models.DateTimeField(default=datetime.now, blank=True)
+
+class Movie(models.Model):
+    title = models.CharField(null=False, max_length=500)
+    point = models.FloatField(default=0.0)
+    reserve = models.FloatField(null=False, default=0.0)
