@@ -61,7 +61,7 @@ def movie(request):
 def movie_dbchart(request):
    # movie 테이블에서 제목(title)에 해당하는 평점(point) 평균을 구하기
    data = Movie.objects.values('title').annotate(point_avg=Avg('point')).order_by('-point_avg')[0:10]
-   # print('data query : ', data.query)
+   # print('data query : ', data.query) - SQL Query 값을 찍는 출력문(출력하면 desc limit이 찍힘)
    df = pd.DataFrame(data)
    # print('data query : ', df)
    print('df : ', df)
