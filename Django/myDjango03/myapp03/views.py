@@ -38,9 +38,11 @@ def movie_chart(request):
    print(group_title)
    # 제목별 그룹화해서 평점의 평균 구하기
    group_mean = df.groupby('제목')['평점'].mean().sort_values(ascending=False).head(10)
-   print(group_mean)
-   # dataProcess.movie_daum_chart()
-   return render(request, 'bigdata/movie_daum.html')
+   # print(group_mean)
+   df1 = pd.DataFrame(group_mean, columns=['평점'])
+   print(df1)
+   dataProcess.movie_daum_chart(df1.index, df1.평점)
+   return render(request, 'bigdata/movie_daum.html', {'img_data' : 'movie_daum_fig.png'})
 
 # WordCloud
 def wordcloud(request):
@@ -72,6 +74,7 @@ def signup(request):
         form = UserForm()
 
     return render(request, 'common/signup.html', {'form' :form })
+
 
 #######################
 # write_form

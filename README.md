@@ -81,3 +81,4 @@
 - from myDjango03.settings import TEMPLATE_DIR 추가
 - Pandas(groupby)
 
+- font_manager, rc

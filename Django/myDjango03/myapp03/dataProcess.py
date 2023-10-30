@@ -2,7 +2,8 @@ import re
 from konlpy.tag import Okt # 한글 자연어 처리(형태소) 분석 패키지
 from collections import Counter
 from wordcloud import WordCloud
-from myDjango03.settings import TEMPLATE_DIR
+from myDjango03.settings import TEMPLATE_DIR, STATIC_DIR
+from matplotlib import font_manager, rc
 import matplotlib.pyplot as plt
 import pytagcloud
 import requests, os
@@ -141,3 +142,16 @@ def movie_crawling(data):
     # print(data)
     
     return data
+
+# movie_daum_chart
+def movie_daum_chart(titles, points):
+    font_location = "C:/Windows/fonts/malgun.ttf"
+    font_name = font_manager.FontProperties(fname=font_location).get_name()
+    rc('font', family = font_name)
+    plt.cla()
+    plt.ylabel('영화평점')
+    plt.xlabel('영화제목')
+    plt.title('Top 10 영화평점')
+    plt.bar(range(len(titles)), points, align='center')
+    plt.xticks(range(len(titles)),list(titles), rotation=30, fontsize=5)
+    plt.savefig(os.path.join(STATIC_DIR, 'images\\movie_daum_fig.png'), dpi=300)
