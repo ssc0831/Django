@@ -168,3 +168,29 @@ def movie_chart(titles, points):
     plt.bar(range(len(titles)), points, align='center')
     plt.xticks(range(len(titles)),list(titles), rotation=30, fontsize=5)
     plt.savefig(os.path.join(STATIC_DIR, 'images\\movie_fig.png'), dpi=300)
+
+# Weather_Crawling
+def weather_crawling(last_data, weather):
+    req = requests.get('https://www.weather.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108')
+    soup = BeautifulSoup(req.text, 'html.parser')
+    # print(soup)
+
+    for i in soup.find_all('location') :
+        weather[i.find('city').text] = []
+        for j in i.find_all('data'):
+            temp = []
+            if (len(last_data)==0) or (j.find('tmef').text < last_data[0]['tmef']):
+            # if (last_data is None) or (str(last_data[0]) < j.find('tmef').text ):
+                temp.append(j.find('tmef').text)
+                temp.append(j.find('wf').text)
+                temp.append(j.find('tmn').text)
+                temp.append(j.find('tmx').text)
+                weather[i.find('city').string].append(temp)
+    print(weather)
+
+# Weather Chart
+def weather_chart(result, wf, dcounts):
+    font_location = "C:/Windows/fonts/malgun.ttf"
+    font_name = font_manager.FontProperties(fname=font_location).get_name()
+    rc('font', family = font_name)
+    

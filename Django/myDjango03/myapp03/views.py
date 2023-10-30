@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from myapp03.models import Board, Comment, Movie
+from myapp03.models import Board, Comment, Movie, Forecast
 from .form import UserForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -68,6 +68,28 @@ def movie_dbchart(request):
    dataProcess.movie_chart(df.title, df.point_avg)
    return render(request, 'bigdata/movie.html',
                  {'img_data' : 'movie_fig.png', 'data' : data})
+
+
+# Weather
+def weather(request):
+   last_date = Forecast.objects.values('tmef').order_by('-tmef')[:1]
+   print('last_date query : ', last_date.query)
+   weather = {}
+   dataProcess.weather_crawling(last_date, weather)
+   for i in weather:
+      for j in weather[i]:
+         dto = Forecast(city = i, tmef= j[0], wf=j[1], tmn=j[2], tmx=j[3])
+         dto.save()
+
+   # 부산에 관한 정보만 출력
+   result = Forecast.objects.filter(city='부산')
+   # print('result', result.query)
+   result1 = Forecast.objects.filter(city='부산').values('wf').annotate(dcount=Count('wf')).values('dcount', 'wf')
+   print('result1', result1.query)
+   df = pd.DataFrame(result1)
+   print('df', df)
+   image_dic = dataProcess.weather_chart(result, df.wf, df.dcount)
+   return render(request, 'bigdata/weather.html')
 
 # WordCloud
 def wordcloud(request):

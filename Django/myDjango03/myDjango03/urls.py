@@ -41,6 +41,9 @@ urlpatterns = [
     path('movie/', views.movie),
     path('movie_dbchart/', views.movie_dbchart),
 
+    # Weather #
+    path('weather/', views.weather),
+
    #### Login, LogOut Authentication ####
     path('login/',
          auth_views.LoginView.as_view(template_name='common/login.html'),

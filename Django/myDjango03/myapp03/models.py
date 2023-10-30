@@ -30,3 +30,10 @@ class Movie(models.Model):
     title = models.CharField(null=False, max_length=500)
     point = models.FloatField(default=0.0)
     reserve = models.FloatField(null=False, default=0.0)
+
+class Forecast(models.Model):
+    city = models.CharField(null=False, max_length=200)
+    tmef = models.TextField(null=True)
+    wf = models.TextField(null=True)
+    tmn = models.IntegerField(default=0)
+    tmx = models.IntegerField(default=0)

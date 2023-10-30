@@ -31,7 +31,8 @@ for i in soup.find_all('location') :
     weather[i.find('city').text] = []
     for j in i.find_all('data'):
         temp = []
-        if (last_data   is None) or  (str(last_data[0]) < j.find('tmef').text ):
+        # if (len(last_data)==0) or (j.find('tmef').text > last_data[0]['tmef']):
+        if (last_data is None) or (str(last_data[0]) < j.find('tmef').text ):
             temp.append(j.find('tmef').text)
             temp.append(j.find('wf').text)
             temp.append(j.find('tmn').text)
