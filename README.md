@@ -77,9 +77,9 @@
 - pip install folium
 - folium 활용 지도 띄우기
 - TEMPLATE_DIR = os.path.join(BASE_DIR, 'myapp03/templates') 경로지정 추가
-- import os
+- import os(운영 체제 인터페이스 표준 모듈 라이브러리)
 - from myDjango03.settings import TEMPLATE_DIR 추가
-- Pandas(groupby) (pandas에서 groupby는 데이터를 특정 기준으로 그룹화하여 분석하는 기능이다.)
+- Pandas(groupby) (데이터를 특정 기준으로 그룹화하여 분석하는 기능이 groupby의 특징이다.)
 
 - font_manager(Python의 기본 폰트 관리 모듈)
 - rc(Python의 설정 파일, Python 프로그램의 기본 설정을 지정)
