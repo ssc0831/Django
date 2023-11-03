@@ -64,14 +64,14 @@
   <ul class="pagination">
     <!-- 이전 -->
    {% if startPage > blockPage %}
-   <a href='?page={{startPage|add:-3}}&field={{field}}&word={{word}}'>&nbsp;이전</a>&nbsp;
+   <a href='?page={{startPage|add:-3}}&field={{field}}&word={{word}}'>&nbsp;이전</a>
   {% endif  %}
   <!-- 페이지번호 -->
   {% for i in range %}
    {% if i == currentPage %}
        [{{i}}]
    {% else %}    
-       <a href='?page={{i}}&field={{field}}&word={{word}}'>&nbsp;{{i}}</a>&nbsp;
+       <a href='?page={{i}}&field={{field}}&word={{word}}'>&nbsp;{{i}}</a>
    {% endif%}
    
   {% endfor %}
